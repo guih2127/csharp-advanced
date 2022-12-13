@@ -23,7 +23,7 @@ Para definir o mapeamento das interfaces para suas classes concretas, devemos ut
 - Singleton: Um objeto do serviço será criado para todas as requisições.
 - Escope: Um objeto do serviço será criado para cada requisição.
 - Transient: Um objeto do serviço será criado toda vez que o objeto for requisitado.
-- 
+  
 É interessante utilizar o transient na maioria das vezes, já que eles tem tempo de vida curto, além disso, não precisamos nos preocupar com cenários multithread e memory-leaks.
 Se quisermos manter o estado do serviço em uma requisição, devemos utilizar o scoped.
 Por último, o Singleton deve ser utilizado com cuidado. Em um caso onde o nosso repositório é populado com um .json inicialmente, ele pode ser útil já que ele não vai ficar reiniciando a lista em cada uma das requisições.
