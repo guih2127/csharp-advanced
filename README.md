@@ -30,3 +30,22 @@ Por último, o Singleton deve ser utilizado com cuidado. Em um caso onde o nosso
 Mais sobre injeção de dependência aqui: https://code-maze.com/dependency-injection-lifetimes-aspnet-core/
 
 ### SOLID
+O SOLID é um conjunto de cinco princípios considerados como boas práticas de programação, ajudando a reduzir o acoplamento de código e facilitando na refatoração, sendo eles:
+
+1 - Single Responsability Principle -> Trata-se de classes e metódos possuírem apenas UMA responsabilidade. Isso ajuda a desaclopar o código, além de facilitar os testes unitários da aplicação.
+
+2 - Open Closed Principle -> Diz que as classes devem estar abertas para extensão e fechadas para modificação. Ou seja, devemos extender o comportamento de uma classe através de heranças, interfaces e composições, mas não devemos permitir a abertura da classe para fazer pequenas alterações.
+Por exemplo, se tivermos uma classe DebitoConta(), que possui um metódo Debitar() que recebe um tipoConta; fazendo um IF para cada tipo de conta, talvez não seja a melhor implementação. O ideal seria criar uma classe abstrata DebitoConta e, a partir disso, criar classes que sobrescrevam o metodo Debitar().
+Esse requisito facilita no desacoplamento e também na adição de novos requisitos e funcionalidades, diminuindo chances de introduzir bugs na aplicação.
+
+3 - Liskov Substitution Principle -> Diz que as classes/tipos base devem poder ser substituídos por qualquer uma das suas subclasses. A criadora deste princípio ponderava sobre os cuidados necessários para utilizar herança.
+Alguns exemplos de violação deste princípio são: Sobrescrever/implementar um metódo que não faz nada, lançar uma exceção inesperada ou retornar valores de tipos diferentes da classe base.
+Esse princípio nos permite utilizar o polimorfismo com mais confiança. Podemos chamar nossas classes derivadas referindo-se à classe base sem preocupações com resultados inesperados.
+
+4 - Interface Segregation Principle -> Esse princípio nos diz que várias interfaces específicas são melhores que apenas uma ou poucas interfaces maiores. Módulos devem possuir poucos comportamentos e serem enxutos. Interfaces com muitos comportamentos se tornam mais difícil de evoluir.
+Podemos saber que estamos violando este princípio se tivermos uma classe que segue uma interface e, essa classe, por sua vez, não precisa implementar um dos metódos dela. Nesse caso, seria melhor termos uma interface específica para essa classe.
+
+5 - Dependency Inversion Principle -> Esse princípio consiste em dois conceitos: Módulos de alto nível não devem depender de módulos de baixo nível e abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+Para implementar esse padrão utilizando .NET, podemos utilizar a Injeção de dependência, fazendo com que módulos de baixo nível tenham um contrato (interface) e os módulos de nível mais alto tenham apenas que utilizar essa interface para utilizar seus metódos. Essa ténica remove a dependência entre entidades.
+
+Mais sobre SOLID aqui: https://medium.com/beelabacademy/princ%C3%ADpios-de-s-o-l-i-d-em-c-guia-pr%C3%A1tico-cbb1e6584284
